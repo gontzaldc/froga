@@ -1,41 +1,33 @@
+@extends('layouts.app')
 
-            @extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-success">
+                <div class="panel-heading">List of Game of Thrones Characters</div>
 
-            @section('content')
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">List of Game of Thrones Characters</div>
+                    @if(Auth::check())
+                      <!-- Table -->
+                      <table class="table">
+                          <tr>
+                              <th>Character</th>
+                              <th>Real Name</th>
+                          </tr>
+                          @foreach($characters as $character)
+                            <tr>
+                              <td>{{ $character->name }}</td>
+                              <td>{{ $character->actor }}</td>
+                            </tr>
+                          @endforeach
+                      </table>
+                    @endif
 
-                                @if(Auth::check())
-                                  <!-- Table -->
-                                  <table class="table">
-                                      <tr>
-                                          <th>Character</th>
-                                          <th>Real Name</th>
-                                      </tr>
-                                      @foreach($characters as $key => $value)
-                                        <tr>
-                                          <td>{{ $key }}</td><td>{{ $value }}</td>
-                                        </tr>
-                                      @endforeach
-                                  </table>
-                                @endif
-
-                        </div>
-                        @if(Auth::guest())
-                          <a href="/login" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
-                        @endif
-                    </div>
-                </div>
-                <button type="button" class="btn">Basic</button>
-<button type="button" class="btn btn-default">Default</button>
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-link">Link</button> 
             </div>
-            @endsection
+            @if(Auth::guest())
+              <a href="/login" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
+            @endif
+        </div>
+    </div>
+</div>
+@endsection
