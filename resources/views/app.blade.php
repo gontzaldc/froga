@@ -51,7 +51,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -68,6 +68,12 @@
                                 </div>
                             </form>
                             </li>
+                            <li class="nav-item">
+                            <a class="navbar-brand" href="{{ url('submit') }}">
+                            +</a>
+                            </li>
+                            
+                        
                         @endguest
                         
                     </ul>

@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +34,18 @@ Route::get('/', function () {
 Route::get('/submit', function () {
   return view('submit');
 });
+
+Route::post('/submit', function (Request $request) {
+  $data = $request->validate([
+      'name' => 'required|max:255',
+      'actor' => 'required|max:255',
+      'description' => 'required|max:255',
+  ]);
+
+  $character = tap(new App\Character($data))->save();
+
+  return redirect('/');
+});
+
+Route::get('/', 'CharacterController@index')->name( 'index' );
+Route::resource('characters', 'CharacterController');
