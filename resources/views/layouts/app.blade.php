@@ -18,7 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -66,8 +68,17 @@
                                         @csrf
                                     </form>
                                 </div>
+                                
+                            </li>
+                            <li class="nav-item">
+                            <form class="form-inline">
+                                <div class="md-form my-0">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                                </div>
+                            </form>
                             </li>
                         @endguest
+                        
                     </ul>
                 </div>
             </div>
