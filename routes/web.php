@@ -30,3 +30,7 @@ Route::get('/', function () {
 
   return view('welcome', ['characters' => $characters]);
 });
+
+Route::get('/submit', function () {
+  return view('submit');
+});
