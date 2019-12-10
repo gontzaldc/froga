@@ -24,3 +24,13 @@ Route::get('/got', [
   }]);
 
 Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 'auth0-callback' );
+
+Route::get('/', function () {
+  $characters = \App\Character::all();
+
+  return view('welcome', ['characters' => $characters]);
+});
+
+Route::get('/submit', function () {
+  return view('submit');
+});
