@@ -11,25 +11,32 @@
                 @endif
 
                 {!! csrf_field() !!}
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <label for="name">Character name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="name" value="{{ old('name') }}">
-                    @if($errors->has('name'))
-                        <span class="help-block">{{ $errors->first('name') }}</span>
+                <div class="form-group{{ $errors->has('izena') ? ' has-error' : '' }}">
+                    <label for="izena">Character name</label>
+                    <input type="text" class="form-control" id="izena" name="izena" placeholder="izena" value="{{ old('izena') }}">
+                    @if($errors->has('izena'))
+                        <span class="help-block">{{ $errors->first('izena') }}</span>
                     @endif
                 </div>
-                <div class="form-group{{ $errors->has('actor') ? ' has-error' : '' }}">
-                    <label for="actor">Actor</label>
-                    <input type="text" class="form-control" id="actor" name="actor" placeholder="actor" value="{{ old('actor') }}">
-                    @if($errors->has('actor'))
-                        <span class="help-block">{{ $errors->first('actor') }}</span>
+                <div class="form-group{{ $errors->has('deskripzioa') ? ' has-error' : '' }}">
+                    <label for="deskripzioa">deskripzioa</label>
+                    <textarea class="form-control" id="deskripzioa" name="deskripzioa" placeholder="deskripzioa">{{ old('deskripzioa') }}</textarea>
+                    @if($errors->has('deskripzioa'))
+                        <span class="help-block">{{ $errors->first('deskripzioa') }}</span>
                     @endif
                 </div>
-                <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="description" placeholder="description">{{ old('description') }}</textarea>
-                    @if($errors->has('description'))
-                        <span class="help-block">{{ $errors->first('description') }}</span>
+                 <div class="form-group{{ $errors->has('adina') ? ' has-error' : '' }}">
+                    <label for="adina">adina</label>
+                    <input type="number" class="form-control" id="adina" name="adina" placeholder="adina" value="{{ old('adina') }}">
+                    @if($errors->has('adina'))
+                        <span class="help-block">{{ $errors->first('adina') }}</span>
+                    @endif
+                </div>
+                <div class="form-group{{ $errors->has('jokalariKop') ? ' has-error' : '' }}">
+                    <label for="jokalariKop">Character name</label>
+                    <input type="number" class="form-control" id="jokalariKop" name="jokalariKop" placeholder="jokalariKop" value="{{ old('jokalariKop') }}">
+                    @if($errors->has('jokalariKop'))
+                        <span class="help-block">{{ $errors->first('jokalariKop') }}</span>
                     @endif
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>

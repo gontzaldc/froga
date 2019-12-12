@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CharacterController extends Controller
+class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,9 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        // get all the characters
-        $characters = \App\Character::all();
-        // load the view and pass the characters
-        return view('welcome', ['characters' => $characters]);
+        $games = \App\tableGame::all();
+        // load the view and pass the gamess
+        return view('welcome', ['games' => $games]);
     }
 
     /**
@@ -36,14 +35,14 @@ class CharacterController extends Controller
      * @return Response
      */
     public function store()
-    {
-        $data = $request->validate([
-            'name' => 'required|max:255',
-            'actor' => 'required|max:255',
-            'description' => 'required|max:255',
-        ]);
-        $character = tap(new \App\Character($data))->save();
-        return redirect('/');
+     {
+    //     $data = $request->validate([
+    //         'name' => 'required|max:255',
+    //         'actor' => 'required|max:255',
+    //         'description' => 'required|max:255',
+    //     ]);
+    //     $character = tap(new \App\Character($data))->save();
+    //     return redirect('/');
     }
     /**
      * Display the specified resource.
@@ -54,10 +53,10 @@ class CharacterController extends Controller
     public function show($id)
     {
         // get the character
-    $character = \App\Character::find($id);
+    $games = \App\tableGame::find($id);
 
     // show the view and pass the character to it
-    return view('show')->with('character', $character);
+    return view('show')->with('games', $games);
 
     }
 
@@ -70,10 +69,10 @@ class CharacterController extends Controller
     public function edit($id)
     {
         // get the character
-        $character = \App\Character::find($id);
+        $games = \App\tableGame::find($id);
 
         // show the edit and pass the character to it
-        return view('edit')->with('character', $character);
+        return view('edit')->with('games', $games);
 
     }
 
@@ -86,17 +85,19 @@ class CharacterController extends Controller
     public function update($id)
     {
         $data = $this->validate(request(), [
-            'name' => 'required|max:255',
-            'actor' => 'required|max:255',
-            'description' => 'required|max:255',
+            'izena' => 'required|max:255',
+            'deskripzioa' => 'required|max:255',
+            'adina' => 'required|max:255',
+            'jokalariKop' => 'required|max:255',
         ]);
     
-        $character = \App\Character::findOrFail($id);
-        $character->update(request()->all());
+        $games = \App\tableGame::findOrFail($id);
+        $games->update(request()->all());
     
         return redirect('/');
-
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
@@ -106,12 +107,12 @@ class CharacterController extends Controller
      */
     public function destroy($id)
     {
-        $character = \App\Character::findOrFail($id);
-        $character->delete();
+        // delete
+        $games = \App\tableGame::findOrFail($id);
+        $games->delete();
 
         return redirect('/');
 
     }
 
 }
-

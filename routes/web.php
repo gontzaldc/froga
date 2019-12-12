@@ -25,10 +25,11 @@ Route::get('/got', [
 
 Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 'auth0-callback' );
 
-Route::get('/', function () {
-  $characters = \App\Character::all();
 
-  return view('welcome', ['characters' => $characters]);
+Route::get('/', function () {
+  $games = \App\tableGame::all();
+
+  return view('welcome', ['games' => $games]);
 });
 
 Route::get('/submit', function () {
@@ -36,16 +37,18 @@ Route::get('/submit', function () {
 });
 
 Route::post('/submit', function (Request $request) {
-  $data = $request->validate([
-      'name' => 'required|max:255',
-      'actor' => 'required|max:255',
-      'description' => 'required|max:255',
-  ]);
+    $data = $request->validate([
+        'izena' => 'required|max:255',
+        'deskripzioa' => 'required|max:255',
+        'adina' => 'required|max:255',
+        'jokalariKop' => 'required|max:255'
+    ]);
 
-  $character = tap(new App\Character($data))->save();
+    $character = tap(new App\tableGame($data))->save();
 
-  return redirect('/');
+    return redirect('/');
 });
 
-Route::get('/', 'CharacterController@index')->name( 'index' );
-Route::resource('characters', 'CharacterController');
+Route::get('/', 'GameController@index')->name( 'index' );
+Route::resource('games', 'GameController');
+
