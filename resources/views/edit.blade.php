@@ -10,7 +10,9 @@
         <div class="container">
             <div class="row">
                 <h1>Submit a Character</h1>
-                <form action="/games/{{$games->id}}" method="put">
+                <form action="/games/{{$games->id}}" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     @if ($errors->any())
                         <div class="alert alert-danger" role="alert">
                             Please fix the following errors
@@ -48,6 +50,8 @@
                         @endif
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
             </div>
         </div>
+        
 @endsection

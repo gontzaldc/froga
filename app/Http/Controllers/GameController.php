@@ -13,7 +13,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = \App\tableGame::all();
+        $games = \App\tableGame::paginate(5);
         // load the view and pass the gamess
         return view('welcome', ['games' => $games]);
     }

@@ -10,9 +10,10 @@
     @if(Auth::check())
         <!-- Table -->
         <table class="table">
+        <p>page: {{$games->currentPage()}} / {{$games->lastPage()}}</p>
             <tr>
-                <th>Character</th>
-                <th>Real Name</th>
+                <th>Izena</th>
+                <th>Jokalari kopurua</th>
             </tr>
             @foreach($games as $tablegames)
             <tr >
@@ -24,12 +25,13 @@
                     <form action="/games/{{ $tablegames->id }}" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-default">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>  
             </tr>
             @endforeach
         </table>
+        <a type="submit" class="btn btn-default" href="{{ $games->previousPageUrl() }}">Aurrekoa</a><a type="submit" class="btn btn-default" href="{{ $games->nextPageUrl() }}">Hurrengoa</a>
     @endif
 
 </div>

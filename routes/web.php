@@ -41,9 +41,15 @@ Route::post('/submit', function (Request $request) {
         'izena' => 'required|max:255',
         'deskripzioa' => 'required|max:255',
         'adina' => 'required|max:255',
-        'jokalariKop' => 'required|max:255'
+        'jokalariKop' => 'required|max:255',
+        'irudia' => 'required'
     ]);
-
+      
+    // $file = $request->file('irudia');
+    // $extension = $file->getClientOriginalExtension(); // getting image extension
+    // $filename =time().'.'.$extension;
+    // $file->move('uploads/img/', $filename);
+      
     $character = tap(new App\tableGame($data))->save();
 
     return redirect('/');

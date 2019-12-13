@@ -19,6 +19,7 @@ class CreateTablegamesTable extends Migration
             $table->text('deskripzioa');
             $table->integer('adina');
             $table->integer('jokalariKop');
+            $table->string('irudia');
             $table->timestamps();
 
         });

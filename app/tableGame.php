@@ -10,6 +10,7 @@ class tablegame extends Model
     'izena',
     'deskripzioa',
     'adina',
-    'jokalariKop'
+    'jokalariKop',
+    'irudia'
     ];
 }
