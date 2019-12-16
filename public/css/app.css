@@ -27,7 +27,7 @@ nav>div.container{
     background-color: #333;
     padding: 0 10% 0 10%;
 }
-form{
+.busca{
     padding: 4% 0 0 0;
 }
 
@@ -44,4 +44,20 @@ form{
   width: 70%;
   border-radius: 5em;
   font-size: 18px;
+}
+.derecha{
+  float: right;
+}
+.tablacontenido, th{
+  padding-top: 2.5%!important;
+  text-align: center!important;
+}
+.tablaimg{
+  text-align: center!important;
+}
+.imagen{
+  width: 40px;
+}
+.botonhidden{
+  background-color: hidden;
 }

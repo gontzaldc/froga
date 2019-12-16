@@ -17,15 +17,15 @@
             </tr>
             @foreach($games as $tablegames)
             <tr >
-                <td>{{ $tablegames->izena }}</td>
-                <td>{{ $tablegames->jokalariKop }}</td>
-                <td><a href="{{ URL::to('games/' . $tablegames->id)}}">Show</a></td>
-                <td><a href="{{ URL::to('games/' . $tablegames->id . '/edit')}}">Edit</a></td>
-                <td>
+                <td class="tablacontenido">{{ $tablegames->izena }}</td>
+                <td class="tablacontenido">{{ $tablegames->jokalariKop }}</td>
+                <td class="tablaimg"><a href="{{ URL::to('games/' . $tablegames->id)}}"><img class="imagen" src="img/web_page/see.png"></td>
+                <td class="tablaimg"><a href="{{ URL::to('games/' . $tablegames->id . '/edit')}}"><img class="imagen" src="img/web_page/edit.png"></a></td>
+                <td class="tablaimg">
                     <form action="/games/{{ $tablegames->id }}" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button class="btn btn-light botonhidden" type="submit"><img class="imagen" src="img/web_page/delete.png"></button>
                     </form>
                 </td>  
             </tr>
