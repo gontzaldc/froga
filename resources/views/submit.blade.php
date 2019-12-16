@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <h1>Submit a Character</h1>
-            <form action="/submit" method="post">
+            <form action="/submit" method="post" enctype="multipart/form-data">
                 @if ($errors->any())
                     <div class="alert alert-danger" role="alert">
                         Please fix the following errors

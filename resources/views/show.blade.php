@@ -10,6 +10,7 @@
 
 <h1>Showing {{ $games->izena }}</h1>
 
+<img src="../img/{{ $games->irudia }}" id="imgtable">
     <div class="jumbotron text-center">
         <h2>{{ $games->adina }}</h2>
         <p>

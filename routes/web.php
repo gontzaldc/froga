@@ -44,13 +44,16 @@ Route::post('/submit', function (Request $request) {
         'jokalariKop' => 'required|max:255',
         'irudia' => 'required'
     ]);
-      
-    // $file = $request->file('irudia');
-    // $extension = $file->getClientOriginalExtension(); // getting image extension
-    // $filename =time().'.'.$extension;
-    // $file->move('uploads/img/', $filename);
-      
-    $character = tap(new App\tableGame($data))->save();
+    
+    
+    $file = $request->file('irudia');
+    $extension = $file->getClientOriginalExtension(); // getting image extension
+    $data['irudia']=str_replace('C:\xampp\tmp\\','',$data['irudia']);
+    $data['irudia']=str_replace('tmp',$extension,$data['irudia']);
+  
+    $file->move('img/',$data['irudia']);
+
+    $games = tap(new App\tableGame($data))->save();
 
     return redirect('/');
 });
