@@ -11,6 +11,7 @@ class tablegame extends Model
     'deskripzioa',
     'adina',
     'jokalariKop',
-    'irudia'
+    'irudia',
+    'sortzailea_ID'
     ];
 }

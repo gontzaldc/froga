@@ -20,6 +20,7 @@ class CreateTablegamesTable extends Migration
             $table->integer('adina');
             $table->integer('jokalariKop');
             $table->string('irudia');
+            $table->integer('sortzailea_ID');
             $table->timestamps();
 
         });
