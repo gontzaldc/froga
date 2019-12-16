@@ -59,5 +59,6 @@ nav>div.container{
   width: 40px;
 }
 .botonhidden{
-  background-color: hidden;
+  background-color: #fff;
+  border: 0px;
 }

@@ -25,7 +25,7 @@
                     <form action="/games/{{ $tablegames->id }}" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button class="btn btn-light botonhidden" type="submit"><img class="imagen" src="img/web_page/delete.png"></button>
+                        <button class="botonhidden" type="submit"><img class="imagen" src="img/web_page/delete.png"></button>
                     </form>
                 </td>  
             </tr>
