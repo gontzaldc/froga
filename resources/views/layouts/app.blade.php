@@ -57,11 +57,18 @@
                                 </form>
                             </li>
                             <li class="nav-item">
-                            <form class="busca" class="form-inline">
-                                <div class="md-form my-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                                </div>
-                            </form>
+
+                            <form action="/search" method="POST" role="search">
+                            {{ csrf_field() }}
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="q"
+                                    placeholder="Search users"> <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
                             </li>
                             <li class="nav-item derecha">
                             <a class="navbar-brand" href="{{ url('submit') }}">+</a>

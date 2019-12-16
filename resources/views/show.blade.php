@@ -11,7 +11,7 @@
     <div id="showContent">
         <h1>{{ $games->izena }}</h1>
 
-        <img src="../img/{{ $games->irudia }}" id="imgtable">
+        <img src="../img/register/{{ $games->irudia }}" id="imgtable">
             <div class="">
                 <p>
                     <strong>Adina:</strong>{{ $games->adina }}<br>
