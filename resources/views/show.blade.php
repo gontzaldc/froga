@@ -7,16 +7,18 @@
         <li><a href="{{ URL::to('games/create') }}">Create a Character</a>
     </ul>
 </nav>
+<center>
+    <div id="showContent">
+        <h1>{{ $games->izena }}</h1>
 
-<h1>Showing {{ $games->izena }}</h1>
-
-<img src="../img/{{ $games->irudia }}" id="imgtable">
-    <div class="jumbotron text-center">
-        <h2>{{ $games->adina }}</h2>
-        <p>
-            <strong>Jokalari Kopurua:</strong> {{ $games->jokalariKop }}<br>
-            <strong>Deskripzioa:</strong> {{ $games->deskripzioa }}
-        </p>
+        <img src="../img/{{ $games->irudia }}" id="imgtable">
+            <div class="">
+                <p>
+                    <strong>Adina:</strong>{{ $games->adina }}<br>
+                    <strong>Jokalari Kopurua:</strong> {{ $games->jokalariKop }}<br>
+                    <strong>Deskripzioa:</strong> {{ $games->deskripzioa }}
+                </p>
+            </div>
     </div>
-
+</center>
 @endsection

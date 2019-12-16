@@ -49,6 +49,13 @@
                             <span class="help-block">{{ $errors->first('jokalariKop') }}</span>
                         @endif
                     </div>
+                    <!-- <div class="form-group{{ $errors->has('irudia') ? ' has-error' : '' }}">
+                        <label for="irudia">irudia</label>
+                        <input type="file" class="form-control" id="irudia" name="irudia" placeholder="irudia" value="{{ old('irudia',$games->irudia) }}">
+                        @if($errors->has('irudia'))
+                            <span class="help-block">{{ $errors->first('irudia') }}</span>
+                        @endif
+                    </div> -->
                     <button type="submit" class="btn btn-default">Submit</button>
                     </form>
             </div>
