@@ -34,15 +34,41 @@ class GameController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
      {
-    //     $data = $request->validate([
-    //         'name' => 'required|max:255',
-    //         'actor' => 'required|max:255',
-    //         'description' => 'required|max:255',
-    //     ]);
-    //     $character = tap(new \App\Character($data))->save();
-    //     return redirect('/');
+         //Data array-ean sartzen ditu formulariotako datuak, eta balidatu egiten ditu
+    $data = $request->validate([
+        'izena' => 'required|max:255',
+        'deskripzioa' => 'required|max:255',
+        'adina' => 'required|max:255',
+        'jokalariKop' => 'required|max:255',
+        'irudia' => 'required',
+        'sortzailea_ID'=> 'nullable'
+                
+    ]);
+    //Logeatutako erabiltzailea hartzen du
+    $user = auth()->user();
+
+    //Irudiaren artxiboa hartzen du
+    $file = $request->file('irudia');
+
+    //Irudiaren extensioa hartzen du
+    $extension = $file->getClientOriginalExtension(); 
+
+    //enctype="multipart/form-data" izena asko aldatzen du, beraz atal batzuk aldatzen dira datu basean eta img karpetan egokitzeko
+    $data['irudia']=str_replace('C:\xampp\tmp\\','',$data['irudia']);
+    $data['irudia']=str_replace('tmp',$extension,$data['irudia']);
+
+    //jokuaren sortutako erabiltzailearen id-a jartzen dio, logeatutako eabiltzailea izango da
+    $data['sortzailea_ID']=$user->id;
+    
+    //Irudia public/img karpetan sartzen du
+    $file->move('img/register',$data['irudia']);
+    
+    //Datuak db-n gordetzen ditu
+    $games = tap(new \App\tableGame($data))->save();
+
+    return redirect('/');
     }
     /**
      * Display the specified resource.
@@ -54,7 +80,6 @@ class GameController extends Controller
     {
         // get the character
     $games = \App\tableGame::find($id);
-
     // show the view and pass the character to it
     return view('show')->with('games', $games);
 
@@ -70,7 +95,6 @@ class GameController extends Controller
     {
         // get the character
         $games = \App\tableGame::find($id);
-
         // show the edit and pass the character to it
         return view('edit')->with('games', $games);
 
@@ -114,5 +138,8 @@ class GameController extends Controller
         return redirect('/');
 
     }
+
+
+
 
 }

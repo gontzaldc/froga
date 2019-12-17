@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@if (Auth::check())
     <div class="container">
         <div class="row">
             <h1>Submit a Character</h1>
-            <form action="/submit" method="post" enctype="multipart/form-data">
+            <form action="/games" method="post" enctype="multipart/form-data">
                 @if ($errors->any())
                     <div class="alert alert-danger" role="alert">
                         Please fix the following errors
@@ -51,4 +52,5 @@
             </form>
         </div>
     </div>
+    @endif
 @endsection

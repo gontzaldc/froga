@@ -58,11 +58,11 @@
                             </li>
                             <li class="nav-item">
 
-                            <form action="/search" method="POST" role="search">
+                            <form class="busca" action="/search" method="POST" role="search">
                             {{ csrf_field() }}
                             <div class="input-group">
                                 <input type="text" class="form-control" name="q"
-                                    placeholder="Search users"> <span class="input-group-btn">
+                                    placeholder="Jokuak bilatu"> <span class="input-group-btn">
                                     <button type="submit" class="btn btn-default">
                                         <span class="glyphicon glyphicon-search"></span>
                                     </button>
@@ -71,7 +71,7 @@
                         </form>
                             </li>
                             <li class="nav-item derecha">
-                            <a class="navbar-brand" href="{{ url('submit') }}">+</a>
+                            <a class="navbar-brand" href="{{ url('games/create') }}">+</a>
                             </li>
                             
                             <li class="nav-item derecha">
@@ -86,7 +86,11 @@
                 
             </div>
         </nav>
-
+        <div>
+        @if(Auth::guest())
+<a href="/login" class="btn btn-info"> You need to login to do this😜😜 >></a>
+@endif
+        </div>
         <main class="py-4">
             @yield('content')
         </main>

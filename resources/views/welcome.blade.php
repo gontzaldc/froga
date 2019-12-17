@@ -4,11 +4,13 @@
 <div class="container">
 <div class="row">
 <div class="col-md-10 col-md-offset-1">
-<div class="panel panel-success">
-<div class="panel-heading">List of Game of Thrones Characters</div>
+
+
 
     @if(Auth::check())
         <!-- Table -->
+        <div class="panel panel-success">
+        <div class="panel-heading">Lista juego de mesa</div>
         <table class="table">
         <p>page: {{$games->currentPage()}} / {{$games->lastPage()}} Registroak:{{$games->firstItem()}}-{{$games->lastItem()}}</p>
             <tr>
@@ -35,9 +37,7 @@
     @endif
 
 </div>
-@if(Auth::guest())
-<a href="/login" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
-@endif
+
 </div>
 </div>
 </div>

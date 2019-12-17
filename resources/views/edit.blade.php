@@ -1,6 +1,7 @@
 <!-- app/views/edit.blade.php -->
 @extends('layouts.app')
 @section('content')
+@if (Auth::check())
 <nav class="navbar navbar-inverse">
     <ul class="nav navbar-nav">
         <li><a href="{{ URL::to('games') }}">View All Character</a></li>
@@ -60,5 +61,5 @@
                     </form>
             </div>
         </div>
-        
+    @endif
 @endsection
