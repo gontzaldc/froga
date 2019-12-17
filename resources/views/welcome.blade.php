@@ -10,7 +10,7 @@
     @if(Auth::check())
         <!-- Table -->
         <table class="table">
-        <p>page: {{$games->currentPage()}} / {{$games->lastPage()}}</p>
+        <p>page: {{$games->currentPage()}} / {{$games->lastPage()}} Registroak:{{$games->firstItem()}}-{{$games->lastItem()}}</p>
             <tr>
                 <th>Izena</th>
                 <th>Jokalari kopurua</th>
