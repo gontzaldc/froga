@@ -73,6 +73,18 @@ Route::post('/submit', function (Request $request) {
     return redirect('/');
 });
 
+Route::any('/search',function(Request $request){
+  $q = $request->input('q');
+
+  $query= DB::table('tablegames')->where('izena', 'like', $q)->orwhere('jokalariKop', '=',$q)->get();
+  return view('search')->with('games', $query);
+
+  // $user = App\tableGame::where('izena','LIKE','%'.$q.'%')->orWhere('jokalariKop','LIKE','%'.$q.'%')->get();
+  // if(count($user) > 0)
+  //     return view('search')->withDetails($user)->withQuery ( $q );
+  // else return view ('welcome')->withMessage('No Details found. Try to search again !');
+});
+
 Route::get('/', 'GameController@index')->name( 'index' );
 Route::resource('games', 'GameController');
 
