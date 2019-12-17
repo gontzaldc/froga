@@ -33,16 +33,19 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto total">
                         <!-- Authentication Links -->
                             @guest
+                            
+                        <div class="derecha">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}"><img class="imagentop" src="img/web_page/login.png"></a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}"><img class="imagentop" src="img/web_page/newuser.png"></a>
                                 </li>
+                        </div>
                             @endif
                         @else
                             <li class="nav-item">
@@ -50,14 +53,14 @@
                                     {{ Auth::user()->name }} 
                                 </a>
                             </li>
-                            
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <li class="nav-item izquierda">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                 </form>
                             </li>
-                            <li class="nav-item">
 
+                            <li class="nav-item">
                             <form class="busca" action="/search" method="POST" role="search">
                             {{ csrf_field() }}
                             <div class="input-group">
@@ -70,26 +73,28 @@
                             </div>
                         </form>
                             </li>
-                            <li class="nav-item derecha">
+                        <div class="derecha">
+                            <li class="nav-item">
                             <a class="navbar-brand" href="{{ url('games/create') }}">+</a>
                             </li>
                             
-                            <li class="nav-item derecha">
+                            <li class="nav-item">
                                 <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                                document.getElementById('logout-form').submit();"><img class="imagentop" src="img/web_page/logout.png"></a>
+                            </li>
+                        </div>
                         @endguest
                         
                     </ul>
                 
             </div>
         </nav>
-        <div>
+        <div class="container">
         @if(Auth::guest())
-<a href="/login" class="btn btn-info"> You need to login to do this😜😜 >></a>
-@endif
+            <a href="/login" class="btn btn-info margen"> You need to login to do this😜😜 >></a>
+            <a href="/register" class="btn btn-info margen"> Not a user? Register here😜😜 >></a>
+        @endif
         </div>
         <main class="py-4">
             @yield('content')
